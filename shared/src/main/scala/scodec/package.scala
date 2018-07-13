@@ -29,7 +29,7 @@ import poly._
  *  - `GenCodec` is a profunctor
  *  - `Codec` is an invariant functor
  */
-package object scodec {
+package object scodec extends Compat {
 
   /**
    * Provides method syntax for working with a type constructor that has a [[Transform]] typeclass instance.

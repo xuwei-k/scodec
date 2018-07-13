@@ -50,7 +50,7 @@ sealed trait MultiplexedCodec {
    * @param buffer input bits
    * @return
    */
-  final def decode[F[_], A](dec: Decoder[A], deMux: BitVector => (BitVector, BitVector))(buffer: BitVector)(implicit cbf: collection.generic.CanBuildFrom[F[A], A, F[A]]): Attempt[DecodeResult[F[A]]] = {
+  final def decode[F[_], A](dec: Decoder[A], deMux: BitVector => (BitVector, BitVector))(buffer: BitVector)(implicit cbf: CanBuildFrom[F[A], A, F[A]]): Attempt[DecodeResult[F[A]]] = {
     val builder = cbf()
     var temp = deMux(buffer)
     var count = 0

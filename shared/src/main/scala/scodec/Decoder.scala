@@ -152,7 +152,7 @@ trait DecoderFunctions {
    * decoded. Exits upon first decoding error.
    * @group conv
    */
-  final def decodeCollect[F[_], A](dec: Decoder[A], limit: Option[Int])(buffer: BitVector)(implicit cbf: collection.generic.CanBuildFrom[F[A], A, F[A]]): Attempt[DecodeResult[F[A]]] = {
+  final def decodeCollect[F[_], A](dec: Decoder[A], limit: Option[Int])(buffer: BitVector)(implicit cbf: CanBuildFrom[F[A], A, F[A]]): Attempt[DecodeResult[F[A]]] = {
     val bldr = cbf()
     var remaining = buffer
     var count = 0
